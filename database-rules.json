@@ -1,0 +1,86 @@
+{
+    "rules": {
+        "cancel_reason": {
+            ".read": "auth != null",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'"
+        },
+        "notifications": {
+            ".read": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'"
+        },
+        "settings": {
+            ".read": "true",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'"
+        },
+        "offers": {
+            ".read": "auth != null",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin' || root.child('users').child(auth.uid).child('usertype').val() === 'rider'"
+        },
+        "rates": {
+            ".read": "true",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'"
+        },
+        "chats": {
+            ".read": "auth != null",
+            "$bookingid": {
+                ".write": "root.child('bookings').child($bookingid).child('customer').val()===auth.uid || root.child('bookings').child($bookingid).child('driver').val()===auth.uid",
+                "messages": {
+                    "$uid": {
+                        ".write": "$uid === auth.uid",
+                        "$mid": {
+                            ".write": "newData.child('from').val() === auth.uid"
+                        }
+                    }
+                }
+            }
+        },
+        "users": {
+            ".read": "auth != null",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin' || root.child('users').child(auth.uid).child('usertype').val() === 'fleetadmin'",
+            "$uid": {
+                ".write": "auth != null && auth.uid===$uid",
+                "$usernode": {
+                    ".write": "$usernode==='walletBalance' || $usernode==='walletHistory' || $usernode==='approved' || $usernode==='ratings' || $usernode==='location' || $usernode==='driverActiveStatus' || $usernode==='queue' || $usernode==='savedAddresses'"
+                }
+            },
+            ".indexOn": [
+                "queue",
+                "referralId",
+                "fleetadmin"
+            ]
+        },
+        "withdraws": {
+            ".read": "auth != null",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'",
+            "$withdrawid": {
+                ".write": "newData.child('uid').val()===auth.uid",
+            }
+        },
+        "bookings": {
+            ".read": "auth != null",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'",
+            "$bookingid": {
+                ".write": "newData.child('customer').val()===auth.uid || newData.child('driver').val()===auth.uid || root.child('bookings').child($bookingid).child('requestedDrivers').child(auth.uid).val()===true",
+            },
+            ".indexOn": [
+                "status",
+                "customer",
+                "driver",
+                "requestedDrivers",
+                "fleetadmin"
+            ]
+        },
+        "tracking": {
+            ".read": "auth != null",
+            ".write": "root.child('users').child(auth.uid).child('usertype').val() === 'admin'",
+            "$bookingid": {
+                ".write": "root.child('bookings').child($bookingid).child('driver').val()===auth.uid"
+            },
+            ".indexOn": [
+                "status",
+                "customer",
+                "driver"
+            ]
+        }
+    }
+}

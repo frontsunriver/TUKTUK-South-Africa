@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>25127405419-uekmv6c92p69jjseq5urmeapd57p8hh6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.25127405419-uekmv6c92p69jjseq5urmeapd57p8hh6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB1crorOA3h6_Ag41Ji9HznwW3ImVDgoF4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>25127405419</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tuktuk.ios.app</string>
+	<key>PROJECT_ID</key>
+	<string>tuk-tuk-e7419</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tuk-tuk-e7419.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:25127405419:ios:95f2b1f45580c507da2e2e</string>
+	<key>DATABASE_URL</key>
+	<string>https://tuk-tuk-e7419-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,31 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "Common Packages",
+  "private": true,
+  "main": "dist/index.js",
+  "dependencies": {
+    "config": "1.0.0",
+    "firebase": "7.9.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

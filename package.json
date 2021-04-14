@@ -1,0 +1,33 @@
+{
+  "name": "TUKTUK",
+  "version": "1.2.0",
+  "description": "TUKTUK Taxi App Full Solution",
+  "scripts": {
+    "app": "yarn workspace mobile-app start",
+    "app:clear": "yarn workspace mobile-app clear",
+    "app:update": "yarn workspace mobile-app update",
+    "app:publish": "cd mobile-app && expo publish",
+    "app:build-ios": "cd mobile-app && expo build:ios",
+    "app:build-android": "cd mobile-app && expo build:android",
+    "web": "yarn workspace web-app start",
+    "web:build": "yarn workspace web-app build",
+    "web:eject": "yarn workspace web-app eject",
+    "common": "yarn workspace common build && yarn workspace web-app add common@1.0.0 --force && yarn workspace mobile-app add common@1.0.0 --force",
+    "postinstall": "concurrently --kill-others-on-fail \"cd mobile-app && expo-yarn-workspaces postinstall\" \"node prepareconfig.js\""
+  },
+  "workspaces": [
+    "assets",
+    "mobile-app",
+    "web-app",
+    "functions",
+    "common",
+    "config"
+  ],
+  "author": "TukTuk App Solutions",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "fs-extra": "^9.0.1",
+    "node-fetch": "^2.6.0"
+  }
+}

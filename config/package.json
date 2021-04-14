@@ -1,0 +1,8 @@
+{
+    "name": "config",
+    "version": "1.0.0",
+    "description": "Config",
+    "private": true,
+    "main": "index.js"
+}
+  
