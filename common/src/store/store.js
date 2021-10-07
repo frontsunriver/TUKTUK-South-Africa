@@ -10,6 +10,7 @@ import { bookingreducer as bookingdata } from "../reducers/bookingreducer";
 import { cancelreasonreducer as cancelreasondata } from "../reducers/cancelreasonreducer";
 import { promoreducer as promodata } from "../reducers/promoreducer";
 import { usersreducer as usersdata } from "../reducers/usersreducer";
+import { usersExceptLocationreducer as usersdataExcept } from "../reducers/usersExceptLocationreducer";
 import { notificationreducer as notificationdata } from "../reducers/notificationreducer";
 import { driverearningreducer as driverearningdata } from '../reducers/driverearningreducer';
 import { earningreportsreducer as earningreportsdata } from '../reducers/earningreportsreducer';
@@ -31,6 +32,7 @@ const reducers = combineReducers({
   cancelreasondata,
   promodata,
   usersdata,
+  usersdataExcept,
   notificationdata,
   driverearningdata,
   earningreportsdata,

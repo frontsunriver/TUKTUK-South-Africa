@@ -20,12 +20,15 @@ export default function CarTypes() {
     { title: language.rate_per_unit_distance, field: 'rate_per_unit_distance', type: 'numeric' },
     { title: language.rate_per_hour, field: 'rate_per_hour', type: 'numeric' },
     { title: language.min_fare, field: 'min_fare', type: 'numeric' },
-    { title: language.convenience_fee, field: 'convenience_fees', type: 'numeric' },
     {
       title: language.convenience_fee_type,
       field: 'convenience_fee_type',
       lookup: { flat: language.flat, percentage: language.percentage },
     },
+    { title: language.convenience_fee, field: 'convenience_fees', type: 'numeric' },
+    { title: language.tuktuk_fees_comment, field: 'tuktuk_fees', type: 'numeric' },
+    { title: language.fleet_manager_fees_comment, field: 'fleet_manager_fees', type: 'numeric' },
+    { title: language.insurance_roads_fees_comment, field: 'insurance_road_fees', type: 'numeric' },
     { title: language.extra_info, field: 'extra_info' }
   ];
   const [data, setData] = useState([]);

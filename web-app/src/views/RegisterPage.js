@@ -129,6 +129,7 @@ export default function LoginPage(props) {
                             props.history.push('/login');
                           },3000);
                         }else{
+                          console.log("res",res)
                           setCommonAlert({ open: true, msg: language.reg_error });
                         }
                       })
@@ -146,6 +147,7 @@ export default function LoginPage(props) {
                         props.history.push('/login');
                       },3000);
                     }else{
+                      console.log("res",res)
                       setCommonAlert({ open: true, msg: language.reg_error });
                     }
                   })

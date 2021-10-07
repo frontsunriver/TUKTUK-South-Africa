@@ -37,12 +37,17 @@ export default function PaymentDetails(props) {
   const [useWalletCash, setUseWalletCash] = useState(false);
 
   const [payDetails, setPayDetails] = useState({
+    driver_share : booking.driver_share,
+    convenience_fees : booking.convenience_fees,
+    tuktuk_fees : booking.tuktuk_fees,
+    fleet_manager_fees : booking.fleet_manager_fees,
+    insurance_road_fees : booking.insurance_road_fees,
     amount: booking.trip_cost,
     discount: 0,
     usedWalletMoney: 0,
     promo_applied: false,
     promo_details: null,
-    payableAmmount: booking.trip_cost,
+    payableAmmount:booking.trip_cost,
   });
 
   const useWallet = () => {
@@ -320,16 +325,47 @@ export default function PaymentDetails(props) {
             }}>
             </View>
             : null}
-
-{userdata && userdata.usertype == 'rider' ?
+          {userdata && userdata.usertype == 'driver' ?
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25 }}>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{language.trip_cost_driver_share}</Text>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{settings.symbol} {parseFloat(payDetails.driver_share).toFixed(2)}</Text>
+            </View>
+            : null
+          }
+          {userdata && userdata.usertype == 'driver' ?
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25 }}>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{language.convenience_fee}</Text>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{settings.symbol} {parseFloat(payDetails.convenience_fees).toFixed(2)}</Text>
+            </View>
+            : null
+          }
+          {userdata && userdata.usertype == 'driver' ?
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25 }}>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{language.tuktuk_fees_comment}</Text>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{settings.symbol} {parseFloat(payDetails.tuktuk_fees).toFixed(2)}</Text>
+            </View>
+            : null
+          }
+          {userdata && userdata.usertype == 'driver' ?
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25 }}>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{language.fleet_manager_fees_comment}</Text>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{settings.symbol} {parseFloat(payDetails.fleet_manager_fees).toFixed(2)}</Text>
+            </View>
+            : null
+          }
+          {userdata && userdata.usertype == 'driver' ?
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25 }}>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 15 ,fontWeight: 'bold' }}>{language.insurance_roads_fees_comment}</Text>
+              <Text style={{ color: 'green', textAlign: 'left', lineHeight: 45, fontSize: 20 ,fontWeight: 'bold' }}>{settings.symbol} {parseFloat(payDetails.insurance_road_fees).toFixed(2)}</Text>
+            </View>
+            : null
+          }
+          {userdata && userdata.usertype == 'rider' ?
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25 }}>
               <Text style={{ color: colors.BLACK, textAlign: 'left', lineHeight: 45, fontSize: 16 }}>{language.your_fare}</Text>
               <Text style={{ color: colors.BLACK, textAlign: 'left', lineHeight: 45, fontSize: 16 }}>{settings.symbol} {parseFloat(payDetails.amount).toFixed(2)}</Text>
             </View>
-            : <View style={{ flex: 1, justifyContent: 'center', padding: 25 }}>
-              <Text style={{ color: 'green', textAlign: 'center', lineHeight: 60, fontSize: 60, fontWeight: 'bold' }}>{settings.symbol} {parseFloat(payDetails.amount).toFixed(2)}</Text>
-            </View>
-          }
+            : null}
           {userdata && userdata.usertype == 'rider' ?
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 25, paddingRight: 25 }}>
               <Text style={{ color: colors.BLACK, textAlign: 'left', lineHeight: 45, fontSize: 16 }}>{language.promo_discount}</Text>

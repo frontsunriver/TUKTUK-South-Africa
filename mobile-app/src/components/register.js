@@ -195,7 +195,7 @@ export default function Registration(props) {
             />
             <ScrollView style={styles.scrollViewStyle} showsVerticalScrollIndicator={false}>
                 <View style={styles.logo}>
-                    <Image source={require('../../assets/images/logo165x90white.png')} />
+                    <Image source={require('../../assets/images/logo165x90.png')} />
                 </View>
                 <KeyboardAvoidingView behavior={Platform.OS == 'ios' ? "padding" : "padding"} style={styles.form}>
                     <View style={styles.containerStyle}>

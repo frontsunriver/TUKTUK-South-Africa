@@ -47,13 +47,14 @@ export default function DriverTrips(props) {
                     language.alert,
                     language.wallet_balance_zero
                 );
+            }else{
+                dispatch(acceptTask(auth.info, item));
+                setSelectedItem(null);
+                setModalVisible(null);
+                setTimeout(() => {
+                    props.navigation.navigate('BookedCab', { bookingId: item.id });
+                }, 3000)
             }
-            dispatch(acceptTask(auth.info, item));
-            setSelectedItem(null);
-            setModalVisible(null);
-            setTimeout(() => {
-                props.navigation.navigate('BookedCab', { bookingId: item.id });
-            }, 3000)
         } else {
             Alert.alert(
                 language.alert,

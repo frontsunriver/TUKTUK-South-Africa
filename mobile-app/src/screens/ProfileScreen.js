@@ -334,7 +334,7 @@ export default function ProfileScreen(props) {
 
                 <View style={styles.flexView3}>
 
-                    <TouchableOpacity style={styles.textIconStyle2} onPress={deleteAccount}>
+                    {/* <TouchableOpacity style={styles.textIconStyle2} onPress={deleteAccount}>
                         <Text style={styles.emailStyle}>{language.delete_account_lebel}</Text>
                         <Icon
                             name='ios-arrow-forward'
@@ -343,8 +343,19 @@ export default function ProfileScreen(props) {
                             size={35}
                             containerStyle={{ right: 20 }}
                         />
-                    </TouchableOpacity>
-
+                    </TouchableOpacity> */}
+                    {/* {profileData && profileData.usertype == 'rider' ?
+                        <TouchableOpacity style={styles.textIconStyle2} onPress={deleteAccount}>
+                            <Text style={styles.emailStyle}>{language.delete_account_lebel}</Text>
+                            <Icon
+                                name='ios-arrow-forward'
+                                type='ionicon'
+                                color={colors.GREY.iconPrimary}
+                                size={35}
+                                containerStyle={{ right: 20}}
+                            />
+                        </TouchableOpacity>
+                    : null} */}
                     <TouchableOpacity onPress={logOff} style={styles.textIconStyle2}>
                         <Text style={styles.emailStyle}>{language.logout}</Text>
                         <Icon

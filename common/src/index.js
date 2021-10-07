@@ -64,6 +64,9 @@ import {
     fetchDrivers,
     editUser
 } from './actions/usersactions';
+import {
+    fetchUsersExcept
+} from './actions/usersExceptLocationactions';
 import { 
     fetchSettings,
     editSettings,
@@ -169,7 +172,8 @@ const FirebaseProvider  = ({ children }) => {
                         app.database().ref('bookings').orderByChild('driver').equalTo(uid)
                         :
                         (role == 'fleetadmin'? 
-                            app.database().ref('bookings').orderByChild('fleetadmin').equalTo(uid)
+                            // app.database().ref('bookings').orderByChild('fleetadmin').equalTo(uid)
+                            app.database().ref('bookings')
                             : app.database().ref('bookings')
                         )
                     ),
@@ -226,7 +230,8 @@ const FirebaseProvider  = ({ children }) => {
                 fetchPromos: () => (dispatch) => fetchPromos()(dispatch)(firebase), 
                 editPromo: (promos, method) => (dispatch) => editPromo(promos, method)(dispatch)(firebase), 
                 editPromos: (promos) => (dispatch) => editPromos(promos)(dispatch)(firebase), 
-                fetchUsers: () => (dispatch) => fetchUsers()(dispatch)(firebase), 
+                fetchUsers: () => (dispatch) => fetchUsers()(dispatch)(firebase),
+                fetchUsersExcept: () => (dispatch) => fetchUsersExcept()(dispatch)(firebase),
                 fetchDrivers: () => (dispatch) => fetchDrivers()(dispatch)(firebase), 
                 addUser: (userdata) => (dispatch) => addUser(userdata)(dispatch)(firebase),
                 editUser: (id, user) => (dispatch) => editUser(id, user)(dispatch)(firebase), 

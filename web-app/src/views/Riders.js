@@ -18,7 +18,7 @@ export default function Users() {
     checkUserExists
   } = api;
   const [data, setData] = useState([]);
-  const usersdata = useSelector(state => state.usersdata);
+  const usersdata = useSelector(state => state.usersdataExcept);
   const dispatch = useDispatch();
 
   useEffect(()=>{

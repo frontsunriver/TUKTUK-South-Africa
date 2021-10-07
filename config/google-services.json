@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "25127405419",
-    "firebase_url": "https://tuk-tuk-e7419-default-rtdb.firebaseio.com",
-    "project_id": "tuk-tuk-e7419",
-    "storage_bucket": "tuk-tuk-e7419.appspot.com"
+    "project_number": "606194185125",
+    "project_id": "tuktuk-11aad",
+    "storage_bucket": "tuktuk-11aad.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:25127405419:android:eb192bbf57372d0bda2e2e",
+        "mobilesdk_app_id": "1:606194185125:android:acce164400fd6800d46e4c",
         "android_client_info": {
-          "package_name": "com.tuktuk.app"
+          "package_name": "com.tuk.tuk.company.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "25127405419-mbhvncnt528j4f0gimdfav8492e5chh9.apps.googleusercontent.com",
+          "client_id": "606194185125-vckrbopolosals2hqdg41vsi6bqv3g2j.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCrxi4nV4or-3W2O0UiJk76gDQ_NSe66Yg"
+          "current_key": "AIzaSyA5xHsZspUhrVrW2woYwfG4pCVgp27qq1Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "25127405419-mbhvncnt528j4f0gimdfav8492e5chh9.apps.googleusercontent.com",
+              "client_id": "606194185125-vckrbopolosals2hqdg41vsi6bqv3g2j.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

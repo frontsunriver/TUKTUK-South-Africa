@@ -167,6 +167,31 @@ export default function AppCommon({ children }) {
         }else{
           StartBackgroundLocation();
         }
+      }else{
+        // locationOn.current = true;
+        // if(Platform.OS == 'android'){
+        //   AsyncStorage.getItem('firstRun', (err, result) => {
+        //     if(result){
+        //       StartBackgroundLocation();
+        //     }else{
+        //       Alert.alert(
+        //         language.disclaimer,
+        //         language.disclaimer_text,
+        //         [
+        //           { 
+        //             text: language.ok, onPress: () => {
+        //               AsyncStorage.setItem('firstRun', 'OK');
+        //               StartBackgroundLocation();
+        //             }
+        //           }
+        //         ],
+        //         { cancelable: false }
+        //       );
+        //     }
+        //   });
+        // }else{
+        //   StartBackgroundLocation();
+        // }
       }
     }
     if (auth.info
@@ -187,7 +212,29 @@ export default function AppCommon({ children }) {
     ) {
       if (!locationOn.current) {
         locationOn.current = true;
-        GetOneTimeLocation();
+        if(Platform.OS == 'android'){
+          AsyncStorage.getItem('firstRun', (err, result) => {
+            if(result){
+              GetOneTimeLocation();
+            }else{
+              Alert.alert(
+                language.disclaimer,
+                language.disclaimer_text,
+                [
+                  { 
+                    text: language.ok, onPress: () => {
+                      AsyncStorage.setItem('firstRun', 'OK');
+                      GetOneTimeLocation();
+                    }
+                  }
+                ],
+                { cancelable: false }
+              );
+            }
+          });
+        }else{
+          GetOneTimeLocation();
+        }
       }
     }
     if (auth.info

@@ -19,15 +19,16 @@ export default function Users() {
   } = api;
   const [data, setData] = useState([]);
   const [cars, setCars] = useState({});
-  const usersdata = useSelector(state => state.usersdata);
+  const usersdata = useSelector(state => state.usersdataExcept);
   const cartypes = useSelector(state => state.cartypes);
   const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   useEffect(()=>{
     if(usersdata.users){
-        setData(usersdata.users.filter(user => user.usertype ==='driver' && ((user.fleetadmin === auth.info.uid && auth.info.profile.usertype === 'fleetadmin')|| auth.info.profile.usertype === 'admin')));
-    }else{
+        // setData(usersdata.users.filter(user => user.usertype ==='driver' && ((user.fleetadmin === auth.info.uid && auth.info.profile.usertype === 'fleetadmin')|| auth.info.profile.usertype === 'admin')));
+        setData(usersdata.users.filter(user => user.usertype ==='driver' && ((auth.info.profile.usertype === 'fleetadmin')|| auth.info.profile.usertype === 'admin')));
+      }else{
       setData([]);
     }
   },[usersdata.users,auth.info.profile.usertype,auth.info.uid]);
@@ -75,7 +76,10 @@ export default function Users() {
         sorting: true,
       }}
       editable={{
-        onRowAdd: newData =>
+        isEditable: newData => auth.info.profile.usertype === "admin",
+        isDeletable: newData => auth.info.profile.usertype === "admin",
+        onRowAdd: auth.info.profile.usertype === "admin"?
+        newData =>
         new Promise((resolve,reject) => {
           setTimeout(() => {
             checkUserExists(newData).then((res) => {
@@ -101,7 +105,8 @@ export default function Users() {
               }
             });
           }, 600);
-        }),
+        })
+        : undefined,
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
             setTimeout(() => {

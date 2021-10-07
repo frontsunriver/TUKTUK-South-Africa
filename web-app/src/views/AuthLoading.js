@@ -15,6 +15,7 @@ function AuthLoading(props) {
         fetchPromos,
         fetchDriverEarnings,
         fetchUsers,
+        fetchUsersExcept,
         fetchNotifications,
         fetchEarningsReport,
         signOut,
@@ -25,9 +26,10 @@ function AuthLoading(props) {
 
     useEffect(()=>{
         dispatch(fetchUser());
+        dispatch(fetchUsersExcept());
         dispatch(fetchCarTypes());
         dispatch(fetchSettings());
-    },[dispatch,fetchUser,fetchCarTypes,fetchSettings]);
+    },[dispatch,fetchUser,fetchUsersExcept,fetchCarTypes,fetchSettings]);
 
     useEffect(()=>{
         if(auth.info){
@@ -42,6 +44,7 @@ function AuthLoading(props) {
                 }
                 else if(role === 'admin'){
                     dispatch(fetchUsers());
+                    dispatch(fetchUsersExcept());
                     dispatch(fetchBookings(auth.info.uid,role));
                     dispatch(fetchPromos());
                     dispatch(fetchDriverEarnings(auth.info.uid,role));
@@ -52,6 +55,7 @@ function AuthLoading(props) {
                 }
                 else if(role === 'fleetadmin'){
                     dispatch(fetchUsers());
+                    dispatch(fetchUsersExcept());
                     dispatch(fetchBookings(auth.info.uid,role));
                     dispatch(fetchDriverEarnings(auth.info.uid,role));
                 }
@@ -64,7 +68,7 @@ function AuthLoading(props) {
                 dispatch(signOut());
             }
         }
-    },[auth.info,dispatch,fetchBookings,fetchCancelReasons,fetchDriverEarnings,fetchEarningsReport,fetchNotifications,fetchPromos,fetchUsers,fetchWithdraws,signOut]);
+    },[auth.info,dispatch,fetchBookings,fetchCancelReasons,fetchDriverEarnings,fetchEarningsReport,fetchNotifications,fetchPromos,fetchUsers,fetchUsersExcept,fetchWithdraws,signOut]);
 
     return (
         auth.loading? <CircularLoading/>:props.children

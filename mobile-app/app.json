@@ -11,7 +11,7 @@
       "notification": {
         "icon": "./assets/images/logo96x96.png"
       },
-      "version": "1.0.0",
+      "version": "1.0.4",
       "orientation": "portrait",
       "icon": "./assets/images/logo1024x1024.png",
       "splash": {
@@ -31,7 +31,7 @@
       "ios": {
         "supportsTablet": true,
         "usesAppleSignIn": true,
-        "bundleIdentifier": "com.tuktuk.app",
+        "bundleIdentifier": "com.tuk.tuk.company.app",
         "infoPlist": {
           "NSLocationAlwaysUsageDescription": "This app uses the always location access in the background for improved pickups and dropoffs, customer support and safety purpose.",
           "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses the always location access in the background for improved pickups and dropoffs, customer support and safety purpose.",
@@ -46,14 +46,14 @@
           ]
         },
         "config": {
-          "googleMapsApiKey": "AIzaSyDlRIO7LZk2h1daE2A1LJTMQl5-ziJE31M"
+          "googleMapsApiKey": "AIzaSyB8x6ZjS7a4-V_Zec371Rf8cQyD6sdbDvE"
         },
         "googleServicesFile": "./GoogleService-Info.plist",
-        "buildNumber": "1.0.0"
+        "buildNumber": "1.0.4"
       },
       "android": {
-        "package": "com.tuktuk.app",
-        "versionCode": 100,
+        "package": "com.tuk.tuk.company.app",
+        "versionCode": 104,
         "permissions": [
           "CAMERA",
           "READ_EXTERNAL_STORAGE",
@@ -67,7 +67,7 @@
         "googleServicesFile": "./google-services.json",
         "config": {
           "googleMaps": {
-            "apiKey": "AIzaSyDlRIO7LZk2h1daE2A1LJTMQl5-ziJE31M"
+            "apiKey": "AIzaSyB8x6ZjS7a4-V_Zec371Rf8cQyD6sdbDvE"
           }
         },
         "useNextNotificationsApi": true

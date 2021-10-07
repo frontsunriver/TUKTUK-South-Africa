@@ -214,10 +214,10 @@ export default function SideMenu(props){
                 :null}
             </View>
             <View>
-                <Image
-                    source={require("../../assets/images/logo165x90white.png")}
+                {/* <Image
+                    source={require("../../assets/images/logo165x90.png")}
                     style={{ width: '100%' }}
-                />
+                /> */}
             </View>
 
         </View>
